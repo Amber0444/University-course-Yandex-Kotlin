@@ -91,8 +91,9 @@ data class Note(
                 Color.red(color),
                 Color.green(color),
                 Color.blue(color)).toString()) }
-        if (importance != Importance.COMMON) { jsonObject.addProperty(
-            "importance", importance.toString())}
+        if (importance != Importance.COMMON) {
+            jsonObject.addProperty("importance", importance.toString())
+        }
         jsonObject.addProperty("dateOfDelete", dateOfDelete.toString())
 
         return jsonObject
