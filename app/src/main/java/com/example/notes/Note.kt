@@ -78,4 +78,23 @@ data class Note(
             )
         }
     }
+
+    fun toJson(): JsonObject{
+        val jsonObject = JsonObject()
+
+        jsonObject.addProperty("uuid", uuid.toString())
+        jsonObject.addProperty("title", title)
+        jsonObject.addProperty("content", content)
+        if (color != Color.WHITE) {
+            jsonObject.addProperty("color", listOf(
+                Color.alpha(color),
+                Color.red(color),
+                Color.green(color),
+                Color.blue(color)).toString()) }
+        if (importance != Importance.COMMON) { jsonObject.addProperty(
+            "importance", importance.toString())}
+        jsonObject.addProperty("dateOfDelete", dateOfDelete.toString())
+
+        return jsonObject
+    }
 }
